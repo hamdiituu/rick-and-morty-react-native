@@ -8,6 +8,10 @@ const Episode = ({navigation}) => {
   useEffect(() => {
     navigation.setOptions({title: '#E01S01'});
   });
+
+  const goToCharacter = () => {
+    navigation.push('Character');
+  };
   return (
     <View style={styles.container}>
       <SafeAreaView style={{marginTop: 80}}>
@@ -20,7 +24,7 @@ const Episode = ({navigation}) => {
       </View>
       <Text style={styles.title}>Characters</Text>
       <ScrollView style={{marginTop: 20, paddingHorizontal: 5}}>
-        <CharacterList />
+        <CharacterList onPress={goToCharacter} />
       </ScrollView>
     </View>
   );

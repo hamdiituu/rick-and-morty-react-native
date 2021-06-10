@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import {Avatar} from './_core';
 
-const CharacterList = () => {
+const CharacterList = ({onPress}) => {
   return (
     <View
       style={{
@@ -12,6 +12,7 @@ const CharacterList = () => {
       }}>
       <View style={{margin: 5}}>
         <Avatar
+          onPress={onPress}
           uri={'https://rickandmortyapi.com/api/character/avatar/1.jpeg'}
         />
       </View>

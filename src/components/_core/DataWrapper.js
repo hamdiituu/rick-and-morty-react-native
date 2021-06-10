@@ -10,13 +10,14 @@ const DataWrapper = ({name, value}) => (
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    height: 22,
-    alignItems: 'flex-end',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    marginBottom: 10,
   },
   name: {
     fontSize: 15,
     fontWeight: '300',
+    textTransform: 'uppercase',
   },
   value: {
     fontSize: 20,

@@ -24,7 +24,15 @@ const AppNavigation = () => (
         name={'Episode'}
         component={Episode}
       />
-      <Stack.Screen name={'Character'} component={Character} />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          headerTintColor: 'black',
+        }}
+        name={'Character'}
+        component={Character}
+      />
     </Stack.Navigator>
   </NavigationContainer>
 );

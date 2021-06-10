@@ -1,9 +1,9 @@
 import React from 'react';
 import {Image, TouchableOpacity} from 'react-native';
 
-const Avatar = ({uri, style = {width: 80, height: 80}}) => {
+const Avatar = ({onPress = null, uri, style = {width: 80, height: 80}}) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <Image
         style={{
           width: style.width,
