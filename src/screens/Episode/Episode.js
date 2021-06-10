@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import {View, Text, SafeAreaView, ScrollView} from 'react-native';
-import {DataWrapper} from '../../components/_core';
-import {CharacterList} from '../../components';
+import {DataWrapper, Avatar} from '../../components/_core';
+
 import styles from './styles';
+import {CharacterList} from '../../components';
 const Episode = ({navigation}) => {
   useEffect(() => {
     navigation.setOptions({title: '#E01S01'});
@@ -18,7 +19,7 @@ const Episode = ({navigation}) => {
         <DataWrapper name={'Episode'} value={'01'} />
       </View>
       <Text style={styles.title}>Characters</Text>
-      <ScrollView>
+      <ScrollView style={{marginTop: 20, paddingHorizontal: 5}}>
         <CharacterList />
       </ScrollView>
     </View>
