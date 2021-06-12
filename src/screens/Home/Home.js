@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {ScrollView, View, Text, SafeAreaView} from 'react-native';
 import {CharactersWidget, EpisodeList} from '../../components';
+
 import styles from './styles';
+
 const Home = ({navigation}) => {
   const goToDetail = () => {
     navigation.push('Episode');
