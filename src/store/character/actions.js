@@ -1,14 +1,15 @@
 import * as types from './types';
 import {get} from '../../utils/Networking';
+import {getAvatarUri} from '../../utils/Globals';
 
-export const fetchMainEpisodes = (page = 1) => {
+export const fetchMainCharacters = () => {
   return dispatch => {
-    const url = '/episode';
+    const url = 'character';
     const params = {
-      page: page,
+      page: 1,
     };
     dispatch({
-      type: types.FETCH_MAIN_EPISODE_LOADING,
+      type: types.FETCH_MAIN_CHARACTER_LOADING,
       payload: true,
     });
 
@@ -17,20 +18,21 @@ export const fetchMainEpisodes = (page = 1) => {
         if (status !== 200) {
           throw data;
         }
+
         dispatch({
-          type: types.FETCH_MAIN_EPISODE_SUCCESS,
+          type: types.FETCH_MAIN_CHARACTER_SUCCESS,
           payload: data,
         });
       })
       .catch(error => {
         dispatch({
-          type: types.FETCH_MAIN_EPISODE_FAIL,
+          type: types.FETCH_MAIN_CHARACTER_FAIL,
           payload: error,
         });
       })
       .finally(() =>
         dispatch({
-          type: types.FETCH_MAIN_EPISODE_LOADING,
+          type: types.FETCH_MAIN_CHARACTER_LOADING,
           payload: false,
         }),
       );

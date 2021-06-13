@@ -1,12 +1,18 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 
-const Number = ({number, onPress = null}) => {
+const Number = ({
+  number,
+  onPress = null,
+  width = 40,
+  height = 40,
+  fontSize = 24,
+}) => {
   return (
     <TouchableOpacity
       style={{
-        height: 40,
-        width: 40,
+        height: height,
+        width: width,
         borderRadius: 90,
         borderWidth: 0,
         justifyContent: 'center',
@@ -14,7 +20,9 @@ const Number = ({number, onPress = null}) => {
         backgroundColor: 'lightgray',
         margin: 2,
       }}>
-      <Text style={{color: 'white', fontWeight: 'bold'}}>{number}</Text>
+      <Text style={{color: 'white', fontWeight: 'bold', fontSize: fontSize}}>
+        {number}
+      </Text>
     </TouchableOpacity>
   );
 };

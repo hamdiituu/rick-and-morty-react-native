@@ -1,12 +1,12 @@
 import React from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 import {EpisodeCard} from './_core';
-const EpisodeList = ({onPress, episodes}) => {
+const EpisodeList = ({onPress, episodes, totalEpisode}) => {
   return (
     <View>
       <View style={styles.title}>
         <Text style={styles.titleText}>Episodes</Text>
-        <Text style={styles.countText}>*41</Text>
+        <Text style={styles.countText}>*{totalEpisode}</Text>
       </View>
       {episodes.map(episode => (
         <EpisodeCard

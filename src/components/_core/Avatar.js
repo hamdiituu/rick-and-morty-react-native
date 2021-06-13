@@ -1,13 +1,13 @@
 import React from 'react';
-import {Image, TouchableOpacity} from 'react-native';
+import {Image, Text, TouchableOpacity} from 'react-native';
 
-const Avatar = ({onPress = null, uri, style = {width: 80, height: 80}}) => {
+const Avatar = ({onPress = null, uri, name, width = 80, height = 80}) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity style={{width: width}} onPress={onPress}>
       <Image
         style={{
-          width: style.width,
-          height: style.height,
+          width: width,
+          height: height,
           borderRadius: 90,
           borderWidth: 1,
           borderColor: 'lightgrey',
@@ -16,6 +16,9 @@ const Avatar = ({onPress = null, uri, style = {width: 80, height: 80}}) => {
           uri: uri,
         }}
       />
+      <Text style={{textAlign: 'center', marginTop: 5, fontWeight: '200'}}>
+        {name}
+      </Text>
     </TouchableOpacity>
   );
 };
