@@ -7,29 +7,22 @@ import {fetchMainCharacters} from '../../store/character/actions';
 import styles from './styles';
 
 const Home = ({navigation}) => {
-  const [page, setPage] = useState(1);
-
   const dispatch = useDispatch();
 
   const episodeReducer = useSelector(state => state.EpisodeReducer);
   const characterReducer = useSelector(state => state.CharacterReducer);
 
   useEffect(() => {
-    mainEpisodes(page);
-    mainCharacters();
-    console.log(characterReducer);
-  }, [page]);
+    dispatch(fetchMainEpisodes());
+    dispatch(fetchMainCharacters());
+  }, []);
 
-  const goToDetail = id => {
+  const goToCharacterDetail = id => {
     navigation.push('Character', {characterId: id});
   };
 
-  const mainEpisodes = page => {
-    dispatch(fetchMainEpisodes(page));
-  };
-
-  const mainCharacters = () => {
-    dispatch(fetchMainCharacters());
+  const goToEpisodeDetail = (id, title = null) => {
+    navigation.push('Episode', {episodeId: id, episodeTitle: title});
   };
 
   return (
@@ -41,8 +34,8 @@ const Home = ({navigation}) => {
         {!characterReducer.mainCharactersLoading &&
         characterReducer.mainCharacters ? (
           <CharactersWidget
-            goToDetail={goToDetail}
             characters={characterReducer.mainCharacters}
+            goToDetail={goToCharacterDetail}
           />
         ) : (
           <Text>Yükleniyor</Text>
@@ -53,6 +46,7 @@ const Home = ({navigation}) => {
             <EpisodeList
               totalEpisode={episodeReducer.mainEpisode.info.count}
               episodes={episodeReducer.mainEpisode.results}
+              onPress={goToEpisodeDetail}
             />
           ) : (
             <Text>Yükleniyor</Text>

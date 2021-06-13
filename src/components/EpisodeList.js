@@ -14,6 +14,7 @@ const EpisodeList = ({onPress, episodes, totalEpisode}) => {
           title={episode.name}
           air_date={episode.air_date}
           episode={episode.episode}
+          onPress={() => onPress(episode.id, episode.episode)}
         />
       ))}
     </View>

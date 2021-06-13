@@ -1,9 +1,9 @@
 import React from 'react';
-import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {Avatar, Number} from './_core';
 import {getAvatarUri} from '../utils/Globals';
 
-const CharactersWidget = ({characters, goToDetail}) => {
+const CharactersWidget = ({characters = null, goToDetail = null}) => {
   return (
     <ScrollView
       showsHorizontalScrollIndicator={false}
