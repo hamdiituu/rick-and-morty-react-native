@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 
-const EpisodeCard = ({onPress}) => {
+const EpisodeCard = ({onPress, title, air_date, episode}) => {
   return (
     <TouchableOpacity onPress={onPress} style={{marginTop: 15}}>
       <View
@@ -11,11 +11,11 @@ const EpisodeCard = ({onPress}) => {
           marginBottom: 12,
           alignItems: 'flex-end',
         }}>
-        <Text style={{fontSize: 20, fontWeight: 'bold'}}>Pilot</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold'}}>{title}</Text>
 
-        <Text style={{fontSize: 13, fontWeight: '200'}}>December 2, 2013</Text>
+        <Text style={{fontSize: 13, fontWeight: '200'}}>{air_date}</Text>
       </View>
-      <Text style={{fontSize: 14, fontWeight: 'bold'}}>#S01E01</Text>
+      <Text style={{fontSize: 14, fontWeight: 'bold'}}>#{episode}</Text>
       <View
         style={{
           flexDirection: 'row',

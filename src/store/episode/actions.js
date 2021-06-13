@@ -11,28 +11,28 @@ export const fetchAllEpisode = (page = 1) => {
       type: types.FETCH_ALL_EPISODE_LOADING,
       payload: true,
     });
+
     return get(url, params)
       .then(({data, status}) => {
         if (status !== 200) {
           throw data;
         }
-
-        dispatch(
-          {
-            type: types.FETCH_ALL_EPISODE_SUCCESS,
-            payload: data,
-          },
-          {
-            type: types.FETCH_ALL_EPISODE_LOADING,
-            payload: false,
-          },
-        );
+        dispatch({
+          type: types.FETCH_ALL_EPISODE_SUCCESS,
+          payload: data,
+        });
       })
       .catch(error => {
         dispatch({
           type: types.FETCH_ALL_EPISODE_FAIL,
           payload: error,
         });
-      });
+      })
+      .finally(() =>
+        dispatch({
+          type: types.FETCH_ALL_EPISODE_LOADING,
+          payload: false,
+        }),
+      );
   };
 };
