@@ -3,7 +3,7 @@ import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {Avatar, Number} from './_core';
 import {getAvatarUri} from '../utils/Globals';
 
-const CharactersWidget = ({characters}) => {
+const CharactersWidget = ({characters, goToDetail}) => {
   return (
     <ScrollView
       showsHorizontalScrollIndicator={false}
@@ -16,6 +16,7 @@ const CharactersWidget = ({characters}) => {
             index === 0 ? {paddingLeft: 10, marginRight: 10} : {marginRight: 10}
           }>
           <Avatar
+            onPress={() => goToDetail(character.id)}
             name={character.name}
             uri={getAvatarUri(character.id)}
             width={60}

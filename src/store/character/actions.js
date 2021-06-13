@@ -1,6 +1,5 @@
 import * as types from './types';
 import {get} from '../../utils/Networking';
-import {getAvatarUri} from '../../utils/Globals';
 
 export const fetchMainCharacters = () => {
   return dispatch => {
@@ -33,6 +32,41 @@ export const fetchMainCharacters = () => {
       .finally(() =>
         dispatch({
           type: types.FETCH_MAIN_CHARACTER_LOADING,
+          payload: false,
+        }),
+      );
+  };
+};
+
+export const fetchDetailCharacter = id => {
+  return dispatch => {
+    const url = `character/${id}`;
+
+    dispatch({
+      type: types.FETCH_DETAIL_CHARACTER_LOADING,
+      payload: true,
+    });
+
+    return get(url)
+      .then(({data, status}) => {
+        if (status !== 200) {
+          throw data;
+        }
+
+        dispatch({
+          type: types.FETCH_DETAIL_CHARACTER_SUCCESS,
+          payload: data,
+        });
+      })
+      .catch(error => {
+        dispatch({
+          type: types.FETCH_DETAIL_CHARACTER_FAIL,
+          payload: error,
+        });
+      })
+      .finally(() =>
+        dispatch({
+          type: types.FETCH_DETAIL_CHARACTER_LOADING,
           payload: false,
         }),
       );

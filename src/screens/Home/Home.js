@@ -20,8 +20,8 @@ const Home = ({navigation}) => {
     console.log(characterReducer);
   }, [page]);
 
-  const goToDetail = () => {
-    navigation.push('Episode');
+  const goToDetail = id => {
+    navigation.push('Character', {characterId: id});
   };
 
   const mainEpisodes = page => {
@@ -40,7 +40,10 @@ const Home = ({navigation}) => {
       <ScrollView>
         {!characterReducer.mainCharactersLoading &&
         characterReducer.mainCharacters ? (
-          <CharactersWidget characters={characterReducer.mainCharacters} />
+          <CharactersWidget
+            goToDetail={goToDetail}
+            characters={characterReducer.mainCharacters}
+          />
         ) : (
           <Text>Yükleniyor</Text>
         )}

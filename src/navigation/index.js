@@ -28,6 +28,7 @@ const AppNavigation = () => (
         options={{
           headerShown: true,
           headerTransparent: true,
+          headerBackTitleVisible: false,
           headerTintColor: 'black',
         }}
         name={'Character'}
