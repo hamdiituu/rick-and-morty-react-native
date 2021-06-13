@@ -10,6 +10,7 @@ const EpisodeList = ({onPress, episodes, totalEpisode}) => {
       </View>
       {episodes.map(episode => (
         <EpisodeCard
+          characters={episode.characters}
           key={episode.id}
           title={episode.name}
           air_date={episode.air_date}

@@ -1,18 +1,25 @@
 import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {getCharacterId, getAvatarUri} from '../../utils/Globals';
 
-const EpisodeCard = ({onPress, title, air_date, episode}) => {
+const EpisodeCard = ({onPress, title, air_date, episode, characters}) => {
   return (
     <TouchableOpacity onPress={onPress} style={{marginTop: 15}}>
       <View
         style={{
           flexDirection: 'row',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-start',
           marginBottom: 12,
           alignItems: 'flex-end',
         }}>
         <Text style={{fontSize: 20, fontWeight: 'bold'}}>{title}</Text>
-
+      </View>
+      <View
+        style={{
+          justifyContent: 'flex-end',
+          marginBottom: 12,
+          alignItems: 'flex-end',
+        }}>
         <Text style={{fontSize: 13, fontWeight: '200'}}>{air_date}</Text>
       </View>
       <Text style={{fontSize: 14, fontWeight: 'bold'}}>#{episode}</Text>
@@ -32,7 +39,7 @@ const EpisodeCard = ({onPress, title, air_date, episode}) => {
             zIndex: 3,
           }}
           source={{
-            uri: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+            uri: getAvatarUri(getCharacterId(characters[0])),
           }}
         />
         <Image
@@ -44,7 +51,7 @@ const EpisodeCard = ({onPress, title, air_date, episode}) => {
             zIndex: 2,
           }}
           source={{
-            uri: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
+            uri: getAvatarUri(getCharacterId(characters[1])),
           }}
         />
         <Image
@@ -55,7 +62,7 @@ const EpisodeCard = ({onPress, title, air_date, episode}) => {
             zIndex: 1,
           }}
           source={{
-            uri: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg',
+            uri: getAvatarUri(getCharacterId(characters[2])),
           }}
         />
         <View
@@ -69,7 +76,7 @@ const EpisodeCard = ({onPress, title, air_date, episode}) => {
             alignItems: 'center',
           }}>
           <Text style={{color: 'white', fontWeight: 'bold', fontSize: 12}}>
-            +30
+            + {characters.length - 3}
           </Text>
         </View>
       </View>

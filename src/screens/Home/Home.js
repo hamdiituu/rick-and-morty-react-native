@@ -25,6 +25,10 @@ const Home = ({navigation}) => {
     navigation.push('Episode', {episodeId: id, episodeTitle: title});
   };
 
+  const addEpisode = () => {
+    console.log('add scroll');
+  };
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
