@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 25,
+    height: 30,
     fontWeight: 'bold',
     textTransform: 'uppercase',
   },

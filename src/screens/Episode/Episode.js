@@ -27,7 +27,7 @@ const Episode = ({route, navigation}) => {
     navigation.push('Character', {characterId: id});
   };
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {!episodeReducer.detailEpisodeLoading && episodeReducer.detailEpisode ? (
         <View>
           <SafeAreaView style={{marginTop: 80}}>
@@ -60,7 +60,7 @@ const Episode = ({route, navigation}) => {
       ) : (
         <Text>Yükleniyor</Text>
       )}
-    </View>
+    </ScrollView>
   );
 };
 

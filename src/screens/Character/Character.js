@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, Text, SafeAreaView, Image, ScrollView} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import styles from './styles';
 import {Avatar, DataWrapper} from '../../components/_core';
@@ -18,13 +18,13 @@ const Character = ({route, navigation}) => {
   }, [characterId]);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {!characterReducer.detailCharacterLoading &&
       characterReducer.detailCharacter ? (
         <View>
           <View
             style={{
-              marginTop: 90,
+              marginTop: 10,
               justifyContent: 'center',
               alignItems: 'center',
             }}>
@@ -66,7 +66,7 @@ const Character = ({route, navigation}) => {
       ) : (
         <Text>Yükleniyor</Text>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
