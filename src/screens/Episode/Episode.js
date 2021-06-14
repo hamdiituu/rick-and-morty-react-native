@@ -6,6 +6,7 @@ import styles from './styles';
 import {CharacterList} from '../../components';
 import {fetchDetailEpisode} from '../../store/episode/actions';
 import {parsSE} from '../../utils/Globals';
+import {EpisodeDetailPlaceHolder} from '../../components/_placeholder';
 
 const Episode = ({route, navigation}) => {
   const {episodeTitle, episodeId} = route.params;
@@ -14,9 +15,7 @@ const Episode = ({route, navigation}) => {
   const dispatch = useDispatch();
 
   navigation.setOptions({
-    title: episodeTitle
-      ? `#${episodeTitle}`
-      : episodeReducer.detailEpisode.episode,
+    title: episodeTitle ? `#${episodeTitle}` : '#Episode Detail',
   });
 
   useEffect(() => {
@@ -58,7 +57,7 @@ const Episode = ({route, navigation}) => {
           </ScrollView>
         </View>
       ) : (
-        <Text>Yükleniyor</Text>
+        <EpisodeDetailPlaceHolder />
       )}
     </ScrollView>
   );
