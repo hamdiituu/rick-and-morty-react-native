@@ -1,25 +1,30 @@
 import React from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 import {EpisodeCard} from './_core';
-const EpisodeList = ({onPress, episodes, totalEpisode}) => {
-  return (
-    <View>
-      <View style={styles.title}>
-        <Text style={styles.titleText}>Episodes</Text>
-        <Text style={styles.countText}>*{totalEpisode}</Text>
+import {EpisodeListPlaceHolder} from './_placeholder';
+const EpisodeList = ({onPress, episodesData = null}) => {
+  if (episodesData) {
+    return (
+      <View>
+        <View style={styles.title}>
+          <Text style={styles.titleText}>Episodes</Text>
+          <Text style={styles.countText}>*{episodesData.info.count}</Text>
+        </View>
+        {episodesData.results.map(episode => (
+          <EpisodeCard
+            characters={episode.characters}
+            key={episode.id}
+            title={episode.name}
+            air_date={episode.air_date}
+            episode={episode.episode}
+            onPress={() => onPress(episode.id, episode.episode)}
+          />
+        ))}
       </View>
-      {episodes.map(episode => (
-        <EpisodeCard
-          characters={episode.characters}
-          key={episode.id}
-          title={episode.name}
-          air_date={episode.air_date}
-          episode={episode.episode}
-          onPress={() => onPress(episode.id, episode.episode)}
-        />
-      ))}
-    </View>
-  );
+    );
+  } else {
+    return <EpisodeListPlaceHolder />;
+  }
 };
 
 const styles = StyleSheet.create({

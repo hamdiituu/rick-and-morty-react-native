@@ -6,6 +6,7 @@ import {fetchMainEpisodes} from '../../store/episode/actions';
 import {fetchMainCharacters} from '../../store/character/actions';
 
 import styles from './styles';
+import {CharactersWidgetPlaceHolder} from '../../components/_placeholder';
 
 const Home = ({navigation}) => {
   const dispatch = useDispatch();
@@ -36,26 +37,16 @@ const Home = ({navigation}) => {
         <Text style={styles.title}>Rick & Morty</Text>
       </SafeAreaView>
       <ScrollView>
-        {!characterReducer.mainCharactersLoading &&
-        characterReducer.mainCharacters ? (
-          <CharactersWidget
-            characters={characterReducer.mainCharacters}
-            goToDetail={goToCharacterDetail}
-          />
-        ) : (
-          <Text>Yükleniyor</Text>
-        )}
+        <CharactersWidget
+          characters={characterReducer.mainCharacters}
+          goToDetail={goToCharacterDetail}
+        />
 
         <View style={{marginTop: 40, paddingHorizontal: 10}}>
-          {!episodeReducer.mainEpisodeLoading && episodeReducer.mainEpisode ? (
-            <EpisodeList
-              totalEpisode={episodeReducer.mainEpisode.info.count}
-              episodes={episodeReducer.mainEpisode.results}
-              onPress={goToEpisodeDetail}
-            />
-          ) : (
-            <Text>Yükleniyor</Text>
-          )}
+          <EpisodeList
+            episodesData={episodeReducer.mainEpisode}
+            onPress={goToEpisodeDetail}
+          />
         </View>
       </ScrollView>
     </View>

@@ -7,10 +7,6 @@ export const fetchMainEpisodes = (page = 1) => {
     const params = {
       page: page,
     };
-    dispatch({
-      type: types.FETCH_MAIN_EPISODE_LOADING,
-      payload: true,
-    });
 
     return get(url, params)
       .then(({data, status}) => {
@@ -27,13 +23,7 @@ export const fetchMainEpisodes = (page = 1) => {
           type: types.FETCH_MAIN_EPISODE_FAIL,
           payload: error,
         });
-      })
-      .finally(() =>
-        dispatch({
-          type: types.FETCH_MAIN_EPISODE_LOADING,
-          payload: false,
-        }),
-      );
+      });
   };
 };
 

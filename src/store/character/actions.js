@@ -7,10 +7,6 @@ export const fetchMainCharacters = () => {
     const params = {
       page: 1,
     };
-    dispatch({
-      type: types.FETCH_MAIN_CHARACTER_LOADING,
-      payload: true,
-    });
 
     return get(url, params)
       .then(({data, status}) => {
@@ -28,13 +24,7 @@ export const fetchMainCharacters = () => {
           type: types.FETCH_MAIN_CHARACTER_FAIL,
           payload: error,
         });
-      })
-      .finally(() =>
-        dispatch({
-          type: types.FETCH_MAIN_CHARACTER_LOADING,
-          payload: false,
-        }),
-      );
+      });
   };
 };
 

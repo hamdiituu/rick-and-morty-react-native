@@ -2,7 +2,8 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: 'flex',
+    marginTop: 45,
   },
   title: {
     fontSize: 25,

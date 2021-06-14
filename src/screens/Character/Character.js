@@ -24,7 +24,7 @@ const Character = ({route, navigation}) => {
         <View>
           <View
             style={{
-              marginTop: 10,
+              marginTop: 70,
               justifyContent: 'center',
               alignItems: 'center',
             }}>
