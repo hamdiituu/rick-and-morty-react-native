@@ -2,3 +2,4 @@ export {default as CharactersWidgetPlaceHolder} from './CharactersWidgetPlaceHol
 export {default as AvatarPlaceHolder} from './AvatarPlaceHolder';
 export {default as EpisodeListPlaceHolder} from './EpisodeListPlaceHolder';
 export {default as EpisodeCardPlaceHolder} from './EpisodeCardPlaceHolder';
+export {default as CharacterDetailPlaceHolder} from './CharacterDetailPlaceHolder';

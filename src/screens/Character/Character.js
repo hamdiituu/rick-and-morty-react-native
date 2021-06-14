@@ -6,6 +6,7 @@ import {Avatar, DataWrapper} from '../../components/_core';
 import {EpisodeWidget} from '../../components';
 import {fetchDetailCharacter} from '../../store/character/actions';
 import {getAvatarUri} from '../../utils/Globals';
+import {CharacterDetailPlaceHolder} from '../../components/_placeholder';
 
 const Character = ({route, navigation}) => {
   const {characterId} = route.params;
@@ -64,7 +65,7 @@ const Character = ({route, navigation}) => {
           </ScrollView>
         </View>
       ) : (
-        <Text>Yükleniyor</Text>
+        <CharacterDetailPlaceHolder />
       )}
     </ScrollView>
   );
