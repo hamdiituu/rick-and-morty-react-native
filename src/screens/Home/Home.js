@@ -4,6 +4,7 @@ import {CharactersWidget, EpisodeList} from '../../components';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchMainEpisodes} from '../../store/episode/actions';
 import {fetchMainCharacters} from '../../store/character/actions';
+
 import styles from './styles';
 
 const Home = ({navigation}) => {
